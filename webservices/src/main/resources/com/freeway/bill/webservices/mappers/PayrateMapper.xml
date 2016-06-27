@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.bill.webservices.mappers.PayrateMapper">
+    <!-- query condition -->
+    <sql id="where_clause">
+        WHERE exists (
+		      SELECT paravalue3 
+		      FROM fs_sys_para 
+		      WHERE memo2 = '0' and paravalue3 = t.outstation
+		)
+    </sql>
+    
+	<!-- 费率查询 -->
+	<select id="getAllPayrates" resultType="Payrate">
+        select *  
+        from KW_PAYRATE t 
+        <include refid="where_clause"></include>
+	</select>
+</mapper>
