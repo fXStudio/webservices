@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import com.freeway.bill.webservices.beans.Insertliterary;
 import com.freeway.bill.webservices.dao.IOTimeDao;
-import com.freeway.bill.webservices.messages.FeedBack;
 
 /**
  * 交接班表数据上传
@@ -24,7 +23,7 @@ final class OTimeDao implements IOTimeDao {
 	private @Autowired DataSource dataSource;
 
 	@Override
-	public FeedBack insertOTimeRecords(Insertliterary insertLiteraries) {
+	public String insertOTimeRecords(Insertliterary insertLiteraries) {
 		Connection conn = null;
 		Statement stmt = null;
 
@@ -40,7 +39,7 @@ final class OTimeDao implements IOTimeDao {
 			conn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return new FeedBack(001, e.getMessage());
+			return e.getMessage();
 		} finally {
 			if (stmt != null) {
 				try {
@@ -61,6 +60,6 @@ final class OTimeDao implements IOTimeDao {
 				}
 			}
 		}
-		return new FeedBack(200, "数据上传成功");
+		return "success";
 	}
 }

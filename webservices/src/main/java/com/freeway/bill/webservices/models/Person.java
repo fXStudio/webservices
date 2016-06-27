@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
  * @author Ajaxfan
  */
 @Table(name = "fs_org_person")
-@XmlType(name = "Person")
+@XmlType
 public class Person {
 	private String account;
 	private String name;

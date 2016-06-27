@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import com.freeway.bill.webservices.beans.Insertliterary;
 import com.freeway.bill.webservices.dao.IOTimeDao;
-import com.freeway.bill.webservices.messages.FeedBack;
 import com.freeway.bill.webservices.services.IDataUploadService;
 
 /**
@@ -21,12 +20,12 @@ final class DataUploadService implements IDataUploadService {
 	private @Autowired IOTimeDao otimeDao;
 
 	@Override
-	public FeedBack uploadLaneOut(Insertliterary literaries) {
+	public String uploadLaneOut(Insertliterary literaries) {
 		return null;
 	}
 
 	@Override
-	public FeedBack uploadOTimeNew(Insertliterary literaries) {
+	public String uploadOTimeNew(Insertliterary literaries) {
 		return otimeDao.insertOTimeRecords(literaries);
 	}
 }

@@ -9,7 +9,6 @@ import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.Use;
 
 import com.freeway.bill.webservices.beans.Insertliterary;
-import com.freeway.bill.webservices.messages.FeedBack;
 
 @SOAPBinding(style = Style.RPC, use = Use.LITERAL, parameterStyle = ParameterStyle.BARE)
 @WebService
@@ -17,7 +16,7 @@ public interface IDataUploadService {
 	/**
 	 * @return 车流量信息
 	 */
-	public FeedBack uploadLaneOut(@WebParam(
+	public String uploadLaneOut(@WebParam(
 	        targetNamespace = "http://www.freeway.com/types",
 	        name = "laneoutInserts",
 	        mode = Mode.IN) Insertliterary literaries);
@@ -25,7 +24,7 @@ public interface IDataUploadService {
 	/**
 	 * @return 人员交接班信息
 	 */
-	public FeedBack uploadOTimeNew(@WebParam(
+	public String uploadOTimeNew(@WebParam(
 	        targetNamespace = "http://www.freeway.com/types",
 	        name = "otimeInserts",
 	        mode = Mode.IN) Insertliterary literaries);
