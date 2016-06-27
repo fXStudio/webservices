@@ -19,7 +19,7 @@ import com.freeway.bill.webservices.services.IHelloWorldWebService;
 // serviceName = "HelloWorldWebService",
 // portName = "HelloWorldWebService",
 // targetNamespace = "http://inters.webservices.bill.freeway.com/"
-public class HelloWorldWebService implements IHelloWorldWebService {
+final class HelloWorldWebService implements IHelloWorldWebService {
 
 	@Override
 	public String sayHello(Insertliterary msgs) {

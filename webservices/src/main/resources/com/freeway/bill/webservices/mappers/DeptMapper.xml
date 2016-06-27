@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.bill.webservices.mappers.DeptMapper">
+	<!-- 返回数据结果的映射 -->
+	<resultMap id="dept" type="Dept">
+		<id property="rowid" column="row_id" />
+		<result property="deptname" column="dept_name"/>
+		<result property="homestation" column="homestation" />
+		<result property="bmjc" column="bmjc" />
+	</resultMap>
+
+	<!-- 部门查询 -->
+	<select id="getAllDept" resultMap="dept">
+		SELECT row_id,
+		       dept_name,
+		       decode(b.paravalue3, null, '0', '1') homestation,
+		       bmjc
+		FROM   (SELECT * FROM fs_org_dept WHERE depttype = 3) a
+	 	       LEFT JOIN (
+		           SELECT paravalue3 FROM fs_sys_para WHERE memo2 = '0'
+		       ) b ON a.row_id = b.paravalue3
+	</select>
+</mapper>

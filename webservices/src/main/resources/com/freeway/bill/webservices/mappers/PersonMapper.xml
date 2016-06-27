@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.bill.webservices.mappers.PersonMapper">
+	<!-- 返回数据结果的映射 -->
+	<resultMap id="person" type="Person">
+		<result property="account" column="account"/>
+		<result property="name" column="name"/>
+		<result property="sex" column="sex" />
+		<result property="department" column="department" />
+		<result property="parent" column="parent" />
+		<result property="role" column="s_memo" />
+		<result property="levelname" column="level_name" />
+		<result property="secretlevel" column="secret_level" />
+		<result property="idcard" column="idcard" />
+	</resultMap>
+
+	<!-- 人员查询 -->
+	<select id="getAllPerson" resultMap="person">
+		select a.account,
+		       a.name,
+		       a.sex,
+		       a.department,
+		       a.parent,
+		       c.s_memo,
+		       a.level_name,
+		       a.secret_level,
+		       a.idcard
+		from fs_org_person a 
+		     inner join (SELECT paravalue3 FROM fs_sys_para WHERE memo2 = '0') b on a.department = b.paravalue3
+		     inner join FS_ORG_ROLE c on a.person_kind = c.name and a.department = c.deptid
+	</select>
+</mapper>

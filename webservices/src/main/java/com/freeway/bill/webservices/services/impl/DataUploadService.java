@@ -17,7 +17,7 @@ import com.freeway.bill.webservices.services.IDataUploadService;
  */
 @Component("DataUploadService")
 @WebService(endpointInterface = "com.freeway.bill.webservices.services.IDataUploadService")
-public class DataUploadService implements IDataUploadService {
+final class DataUploadService implements IDataUploadService {
 	private @Autowired IOTimeDao otimeDao;
 
 	@Override
