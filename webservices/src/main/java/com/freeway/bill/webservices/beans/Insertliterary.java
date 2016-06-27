@@ -5,8 +5,13 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
 
+/**
+ * SQL 表达式
+ * 
+ * @author Ajaxfan
+ */
 public class Insertliterary {
-	@XmlElement(name = "sql")
+	@XmlElement(name = "insert")
 	public List<String> objs = new ArrayList<String>();
 
 	public void addLiterary(String msg) {

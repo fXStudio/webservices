@@ -9,5 +9,5 @@
 	<!-- Data Exporter Service -->
 	<jaxws:endpoint id="dataExportService" implementor="#DataExportService" address="/data_export" />
 	<!-- Data Upload Service -->
-	<!-- <jaxws:endpoint id="dataUploadService" implementor="#DataUploadService" address="/data_upload" /> -->
+	<jaxws:endpoint id="dataUploadService" implementor="#DataUploadService" address="/data_upload" />
 </beans>

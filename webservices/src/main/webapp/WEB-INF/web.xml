@@ -15,7 +15,10 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!--  Apache CFX Servlet Config -->
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<!-- Apache CFX Servlet Config -->
 	<servlet>
 		<servlet-name>ApacheCFX</servlet-name>
 		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
@@ -25,8 +28,8 @@
 		<servlet-name>ApacheCFX</servlet-name>
 		<url-pattern>/services/*</url-pattern>
 	</servlet-mapping>
-	
-	<!-- Session Timeout (30 minutes)-->
+
+	<!-- Session Timeout (30 minutes) -->
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
