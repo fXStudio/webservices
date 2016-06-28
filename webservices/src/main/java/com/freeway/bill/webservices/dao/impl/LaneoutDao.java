@@ -37,12 +37,12 @@ final class LaneoutDao implements ILaneoutDao {
 			conn.setAutoCommit(false);
 			stmt = conn.createStatement();
 
-			logcase.info("------------------------------Web Request Start-------------");
+			logcase.info("------------------------------车流量上报开始-------------");
 			for (String sql : insertLiteraries.getLiteraris()) {
 				stmt.addBatch(sql);
 				logcase.info(sql);
 			}
-			logcase.info("------------------------------Web Request End-------------");
+			logcase.info("------------------------------车流量上报开始结束-------------");
 			stmt.executeBatch();
 			conn.commit();
 		} finally {

@@ -5,7 +5,7 @@
 	<artifactId>webservices</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>吉林省高速公路票据管理系统-webservice服务</name>
+	<name>webservice</name>
 	<url>http://www.freeway.com</url>
 
 	<dependencies>
