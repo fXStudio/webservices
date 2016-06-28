@@ -88,14 +88,28 @@
 	</dependencies>
 	<build>
 		<plugins>
-			<!-- <plugin> <groupId>org.apache.cxf</groupId> <artifactId>cxf-java2ws-plugin</artifactId> 
-				<version>2.6.0</version> <executions> <execution> <id>generate-wsdl</id> 
-				<phase>process-classes</phase> <goals> <goal>java2ws</goal> </goals> <configuration> 
-				<outputFile>${basedir}/src/main/webapp/META-INF/resources/schema/HelloWorldWebService.wsdl</outputFile> 
-				<className>com.freeway.bill.webservices.inters.IHelloWorldWebService</className> 
-				<genWsdl>true</genWsdl> <verbose>true</verbose> </configuration> </execution> 
-				</executions> </plugin> -->
-
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-java2ws-plugin</artifactId>
+				<version>2.6.0</version>
+				<executions>
+					<execution>
+						<id>generate-wsdl</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>java2ws</goal>
+						</goals>
+						<configuration>
+							<className>com.freeway.bill.webservices.services.IDataExportService</className>
+							<outputFile>${basedir}/src/main/webapp/WEB-INF/wsdl/DataExportService.wsdl</outputFile>
+							<className>com.freeway.bill.webservices.services.IDataUploadService</className>
+							<outputFile>${basedir}/src/main/webapp/WEB-INF/wsdl/DataUploadService.wsdl</outputFile>
+							<genWsdl>true</genWsdl>
+							<verbose>true</verbose>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
