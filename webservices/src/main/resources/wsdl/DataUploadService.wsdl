@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="DataUploadService"
+	targetNamespace="http://webservices.bill.freeway.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://webservices.bill.freeway.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:ns1="http://webservices.bill.freeway.com/" targetNamespace="http://webservices.bill.freeway.com/types"
+			version="1.0">
+			<xs:import namespace="http://webservices.bill.freeway.com/" />
+			<xs:element name="insert" type="xs:string" />
+			<xs:element name="sqls" type="ns1:insertliterary" />
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:ns1="http://webservices.bill.freeway.com/types" xmlns:tns="http://webservices.bill.freeway.com/"
+			elementFormDefault="unqualified" targetNamespace="http://webservices.bill.freeway.com/"
+			version="1.0">
+			<xs:import namespace="http://webservices.bill.freeway.com/types" />
+			<xs:element name="result" type="tns:wsResult" />
+			<xs:element name="uploadLaneOut" type="tns:uploadLaneOut" />
+			<xs:element name="uploadLaneOutResponse" type="tns:uploadLaneOutResponse" />
+			<xs:element name="uploadOTimeNew" type="tns:uploadOTimeNew" />
+			<xs:element name="uploadOTimeNewResponse" type="tns:uploadOTimeNewResponse" />
+			<xs:complexType name="uploadLaneOut">
+				<xs:sequence>
+					<xs:element minOccurs="0" ref="ns1:sqls" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="insertliterary">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:insert" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="uploadLaneOutResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" ref="tns:result" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsResult">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="message" type="xs:string" />
+					<xs:element minOccurs="0" name="status" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="uploadOTimeNew">
+				<xs:sequence>
+					<xs:element minOccurs="0" ref="ns1:sqls" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="uploadOTimeNewResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" ref="tns:result" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="uploadLaneOutResponse">
+		<wsdl:part name="parameters" element="tns:uploadLaneOutResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="uploadOTimeNew">
+		<wsdl:part name="parameters" element="tns:uploadOTimeNew">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="uploadOTimeNewResponse">
+		<wsdl:part name="parameters" element="tns:uploadOTimeNewResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="uploadLaneOut">
+		<wsdl:part name="parameters" element="tns:uploadLaneOut">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="DataUploadService">
+		<wsdl:operation name="uploadLaneOut">
+			<wsdl:input name="uploadLaneOut" message="tns:uploadLaneOut">
+			</wsdl:input>
+			<wsdl:output name="uploadLaneOutResponse" message="tns:uploadLaneOutResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="uploadOTimeNew">
+			<wsdl:input name="uploadOTimeNew" message="tns:uploadOTimeNew">
+			</wsdl:input>
+			<wsdl:output name="uploadOTimeNewResponse" message="tns:uploadOTimeNewResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DataUploadServiceSoapBinding" type="tns:DataUploadService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="uploadLaneOut">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="uploadLaneOut">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="uploadLaneOutResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="uploadOTimeNew">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="uploadOTimeNew">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="uploadOTimeNewResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="DataUploadService">
+		<wsdl:port name="DataUploadServicePort" binding="tns:DataUploadServiceSoapBinding">
+			<soap:address location="http://localhost:9090/DataUploadServicePort" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

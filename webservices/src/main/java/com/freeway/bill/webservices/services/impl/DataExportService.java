@@ -21,7 +21,13 @@ import com.freeway.bill.webservices.services.IDataExportService;
  * @author Ajaxfan
  */
 @Component("DataExportService")
-@WebService(endpointInterface = "com.freeway.bill.webservices.services.IDataExportService")
+@WebService(
+        endpointInterface = "com.freeway.bill.webservices.services.IDataExportService",
+        targetNamespace = "http://webservices.bill.freeway.com/",
+        serviceName = "DataExportService",
+        name = "DataExportService",
+        portName = "DataExportServicePort",
+        wsdlLocation = "wsdl/DataExportService.wsdl")
 final class DataExportService implements IDataExportService {
 	/** 费率查询服务 */
 	private @Autowired PayrateMapper payrateMapper;

@@ -11,21 +11,21 @@ import com.freeway.bill.webservices.models.Dept;
 import com.freeway.bill.webservices.models.Payrate;
 import com.freeway.bill.webservices.models.Person;
 
+@SOAPBinding(style = Style.RPC)
 @WebService
-@SOAPBinding(style=Style.RPC)
 public interface IDataExportService {
-	/**
-	 * @return 人员信息
-	 */
-	public @WebResult(name = "persons") List<Person> getPersons();
+    /**
+     * @return 人员信息
+     */
+    public @WebResult(name = "persons") List<Person> getPersons();
 
-	/**
-	 * @return 费率
-	 */
-	public @WebResult(name = "payrates") List<Payrate> getPayrates();
+    /**
+     * @return 费率
+     */
+    public @WebResult(name = "payrates") List<Payrate> getPayrates();
 
-	/**
-	 * @return 部门
-	 */
-	public @WebResult(name = "departments") List<Dept> getDepts();
+    /**
+     * @return 部门
+     */
+    public @WebResult(name = "departments") List<Dept> getDepts();
 }

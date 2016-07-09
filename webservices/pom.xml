@@ -100,8 +100,8 @@
 							<goal>java2ws</goal>
 						</goals>
 						<configuration>
-							<className>com.freeway.bill.webservices.services.IDataExportService</className>
-							<outputFile>${basedir}/src/main/webapp/wsdl/DataExportService.wsdl</outputFile>
+							<!--  <className>com.freeway.bill.webservices.services.IDataExportService</className>
+							<outputFile>${basedir}/src/main/webapp/wsdl/DataExportService.wsdl</outputFile> -->
 							<!-- <className>com.freeway.bill.webservices.services.IDataUploadService</className>
 							<outputFile>${basedir}/src/main/webapp/wsdl/DataUploadService.wsdl</outputFile> -->
 							<genWsdl>true</genWsdl>
