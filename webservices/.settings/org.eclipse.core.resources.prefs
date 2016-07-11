@@ -1,3 +1,11 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/java/com/freeway/bill/webservices/beans/Insertliterary.java=UTF-8
+encoding//src/main/java/com/freeway/bill/webservices/dao/impl/LaneoutDao.java=UTF-8
+encoding//src/main/java/com/freeway/bill/webservices/dao/impl/OTimeDao.java=UTF-8
+encoding//src/main/java/com/freeway/bill/webservices/services/IDataExportService.java=UTF-8
+encoding//src/main/java/com/freeway/bill/webservices/services/IDataUploadService.java=UTF-8
+encoding//src/main/java/com/freeway/bill/webservices/services/impl/DataExportService.java=UTF-8
+encoding//src/main/java/com/freeway/bill/webservices/services/impl/DataUploadService.java=UTF-8
 encoding//src/main/resources/log4j.properties=UTF-8
 encoding/<project>=UTF-8

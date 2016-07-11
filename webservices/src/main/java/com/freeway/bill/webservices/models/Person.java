@@ -3,6 +3,8 @@ package com.freeway.bill.webservices.models;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlType;
 
+import com.sun.xml.txw2.annotation.XmlCDATA;
+
 /**
  * 人员信息
  * 
@@ -20,6 +22,15 @@ public class Person {
 	private String levelname;
 	private String secretlevel;
 	private String idcard;
+	private String password;
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getAccount() {
 		return account;

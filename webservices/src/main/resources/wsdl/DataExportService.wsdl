@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="DataExportService" targetNamespace="http://webservices.bill.freeway.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservices.bill.freeway.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices.bill.freeway.com/" targetNamespace="http://webservices.bill.freeway.com/" version="1.0">
+<xs:complexType name="dept">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bmjc" type="xs:string"/>
+      <xs:element minOccurs="0" name="deptname" type="xs:string"/>
+      <xs:element minOccurs="0" name="homestation" type="xs:string"/>
+      <xs:element minOccurs="0" name="rowid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="payrate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cartype" type="xs:string"/>
+      <xs:element minOccurs="0" name="instation" type="xs:string"/>
+      <xs:element minOccurs="0" name="outstation" type="xs:string"/>
+      <xs:element minOccurs="0" name="payrate" type="xs:string"/>
+      <xs:element minOccurs="0" name="rate" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="account" type="xs:string"/>
+      <xs:element minOccurs="0" name="department" type="xs:string"/>
+      <xs:element minOccurs="0" name="idcard" type="xs:string"/>
+      <xs:element minOccurs="0" name="levelname" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="parent" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="role" type="xs:string"/>
+      <xs:element minOccurs="0" name="secretlevel" type="xs:string"/>
+      <xs:element minOccurs="0" name="sex" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="deptArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:dept"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="payrateArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:payrate"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="personArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:person"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getDeptsResponse">
+    <wsdl:part name="departments" type="tns:deptArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPersonsResponse">
+    <wsdl:part name="persons" type="tns:personArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPayratesResponse">
+    <wsdl:part name="payrates" type="tns:payrateArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDepts">
+  </wsdl:message>
+  <wsdl:message name="getPersons">
+  </wsdl:message>
+  <wsdl:message name="getPayrates">
+  </wsdl:message>
+  <wsdl:portType name="DataExportService">
+    <wsdl:operation name="getDepts">
+      <wsdl:input name="getDepts" message="tns:getDepts">
+    </wsdl:input>
+      <wsdl:output name="getDeptsResponse" message="tns:getDeptsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPayrates">
+      <wsdl:input name="getPayrates" message="tns:getPayrates">
+    </wsdl:input>
+      <wsdl:output name="getPayratesResponse" message="tns:getPayratesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPersons">
+      <wsdl:input name="getPersons" message="tns:getPersons">
+    </wsdl:input>
+      <wsdl:output name="getPersonsResponse" message="tns:getPersonsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataExportServiceSoapBinding" type="tns:DataExportService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDepts">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="getDepts">
+        <soap:body use="literal" namespace="http://webservices.bill.freeway.com/"/>
+      </wsdl:input>
+      <wsdl:output name="getDeptsResponse">
+        <soap:body use="literal" namespace="http://webservices.bill.freeway.com/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPayrates">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="getPayrates">
+        <soap:body use="literal" namespace="http://webservices.bill.freeway.com/"/>
+      </wsdl:input>
+      <wsdl:output name="getPayratesResponse">
+        <soap:body use="literal" namespace="http://webservices.bill.freeway.com/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPersons">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="getPersons">
+        <soap:body use="literal" namespace="http://webservices.bill.freeway.com/"/>
+      </wsdl:input>
+      <wsdl:output name="getPersonsResponse">
+        <soap:body use="literal" namespace="http://webservices.bill.freeway.com/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataExportService">
+    <wsdl:port name="DataExportServicePort" binding="tns:DataExportServiceSoapBinding">
+      <soap:address location="http://localhost:9090/DataExportServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

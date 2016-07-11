@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import org.apache.cxf.interceptor.OutInterceptors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,14 @@ import com.freeway.bill.webservices.services.IDataExportService;
  * @author Ajaxfan
  */
 @Component("DataExportService")
-@WebService(endpointInterface = "com.freeway.bill.webservices.services.IDataExportService")
+@OutInterceptors(interceptors = { "com.freeway.bill.webservices.interceptors.CDATAOutInterceptor"})
+@WebService(
+        endpointInterface = "com.freeway.bill.webservices.services.IDataExportService",
+        targetNamespace = "http://webservices.bill.freeway.com/",
+        serviceName = "DataExportService",
+        name = "DataExportService",
+        portName = "DataExportServicePort",
+        wsdlLocation = "wsdl/DataExportService.wsdl")
 final class DataExportService implements IDataExportService {
 	/** 费率查询服务 */
 	private @Autowired PayrateMapper payrateMapper;

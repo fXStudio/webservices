@@ -11,14 +11,14 @@ import javax.xml.bind.annotation.XmlElement;
  * @author Ajaxfan
  */
 public class Insertliterary {
-	@XmlElement(name = "insert")
-	public List<String> objs = new ArrayList<String>();
+    @XmlElement(name = "insert", namespace = "http://webservices.bill.freeway.com/types")
+    public List<String> objs = new ArrayList<String>();
 
-	public void addLiterary(String msg) {
-		objs.add(msg);
-	}
+    public void addLiterary(String msg) {
+        objs.add(msg);
+    }
 
-	public List<String> getLiteraris() {
-		return this.objs;
-	}
+    public List<String> getLiteraris() {
+        return this.objs;
+    }
 }
