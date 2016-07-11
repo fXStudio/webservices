@@ -11,85 +11,94 @@ import javax.xml.bind.annotation.XmlType;
 @Table(name = "fs_org_person")
 @XmlType
 public class Person {
-	private String account;
-	private String name;
-	private String sex;
-	private String department;
-	private String parent;
-	private String role;
-	private String levelname;
-	private String secretlevel;
-	private String idcard;
+    private String account;
+    private String name;
+    private String sex;
+    private String department;
+    private String parent;
+    private String role;
+    private String levelname;
+    private String secretlevel;
+    private String idcard;
+    private String password;
 
-	public String getAccount() {
-		return account;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setAccount(String account) {
-		this.account = account;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getAccount() {
+        return account;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
-	public String getSex() {
-		return sex;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getDepartment() {
-		return department;
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	public void setDepartment(String department) {
-		this.department = department;
-	}
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
-	public String getParent() {
-		return parent;
-	}
+    public String getDepartment() {
+        return department;
+    }
 
-	public void setParent(String parent) {
-		this.parent = parent;
-	}
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    public String getParent() {
+        return parent;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    public void setParent(String parent) {
+        this.parent = parent;
+    }
 
-	public String getLevelname() {
-		return levelname;
-	}
+    public String getRole() {
+        return role;
+    }
 
-	public void setLevelname(String levelname) {
-		this.levelname = levelname;
-	}
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-	public String getSecretlevel() {
-		return secretlevel;
-	}
+    public String getLevelname() {
+        return levelname;
+    }
 
-	public void setSecretlevel(String secretlevel) {
-		this.secretlevel = secretlevel;
-	}
+    public void setLevelname(String levelname) {
+        this.levelname = levelname;
+    }
 
-	public String getIdcard() {
-		return idcard;
-	}
+    public String getSecretlevel() {
+        return secretlevel;
+    }
 
-	public void setIdcard(String idcard) {
-		this.idcard = idcard;
-	}
+    public void setSecretlevel(String secretlevel) {
+        this.secretlevel = secretlevel;
+    }
+
+    public String getIdcard() {
+        return idcard;
+    }
+
+    public void setIdcard(String idcard) {
+        this.idcard = idcard;
+    }
 }

@@ -8,9 +8,10 @@
 		<result property="account" column="account"/>
 		<result property="name" column="name"/>
 		<result property="sex" column="sex" />
+		<result property="password" column="password" />
 		<result property="department" column="department" />
 		<result property="parent" column="parent" />
-		<result property="role" column="s_memo" />
+		<result property="role" column="person_kind" />
 		<result property="levelname" column="level_name" />
 		<result property="secretlevel" column="secret_level" />
 		<result property="idcard" column="idcard" />
@@ -21,14 +22,14 @@
 		select a.account,
 		       a.name,
 		       a.sex,
+		       '88888' password,
 		       a.department,
 		       a.parent,
-		       c.s_memo,
+		       a.person_kind,
 		       a.level_name,
 		       a.secret_level,
 		       a.idcard
 		from fs_org_person a 
 		     inner join (SELECT paravalue3 FROM fs_sys_para WHERE memo2 = '0') b on a.department = b.paravalue3
-		     inner join FS_ORG_ROLE c on a.person_kind = c.name and a.department = c.deptid
 	</select>
 </mapper>
