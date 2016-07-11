@@ -13,6 +13,11 @@ import com.freeway.bill.webservices.models.Person;
 
 @SOAPBinding(style = Style.RPC)
 @WebService
+/*(
+        targetNamespace = "http://webservices.bill.freeway.com/",
+        serviceName = "DataExportService",
+        name = "DataExportService",
+        portName = "DataExportServicePort")*/
 public interface IDataExportService {
     /**
      * @return 人员信息
