@@ -134,20 +134,4 @@
 			<soap:address location="http://localhost:9090/DataExportServicePort" />
 		</wsdl:port>
 	</wsdl:service>
-	<wsp:Policy wsu:Id="DataExportServiceSoapBindingPolicy">
-		<wsp:ExactlyOne>
-			<wsp:All>
-				<sp:SupportingTokens>
-					<wsp:Policy>
-						<sp:UsernameToken
-							sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
-							<wsp:Policy>
-								<sp:WssUsernameToken10 />
-							</wsp:Policy>
-						</sp:UsernameToken>
-					</wsp:Policy>
-				</sp:SupportingTokens>
-			</wsp:All>
-		</wsp:ExactlyOne>
-	</wsp:Policy>
 </wsdl:definitions>
