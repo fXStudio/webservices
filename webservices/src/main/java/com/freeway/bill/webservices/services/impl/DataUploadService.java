@@ -20,45 +20,45 @@ import com.freeway.bill.webservices.services.IDataUploadService;
  */
 @Component("DataUploadService")
 @WebService(
-        endpointInterface = "com.freeway.bill.webservices.services.IDataUploadService",
-        targetNamespace = "http://webservices.bill.freeway.com/",
-        serviceName = "DataUploadService",
-        name = "DataUploadService",
-        portName = "DataUploadServicePort",
-        wsdlLocation = "wsdl/DataUploadService.wsdl")
+		endpointInterface = "com.freeway.bill.webservices.services.IDataUploadService",
+		targetNamespace = "http://webservices.bill.freeway.com/",
+		serviceName = "DataUploadService",
+		name = "DataUploadService",
+		portName = "DataUploadServicePort",
+		wsdlLocation = "wsdl/DataUploadService.wsdl")
 final class DataUploadService implements IDataUploadService {
-    /** 交接班数据接口 */
-    private @Autowired IOTimeDao otimeDao;
-    /** 车流量数据接口 */
-    private @Autowired ILaneoutDao laneoutDao;
+	/** 交接班数据接口 */
+	private @Autowired IOTimeDao otimeDao;
+	/** 车流量数据接口 */
+	private @Autowired ILaneoutDao laneoutDao;
 
-    /**
-     * 车流量数据上传
-     */
-    @Override
-    public WSResult uploadLaneOut(Insertliterary literaries) {
-        WSResult result = new WSResult();// 默认为success状态
-        try {// 执行获得的SQL语句
-            laneoutDao.insertLaneoutRecords(literaries);
-        } catch (SQLException e) {// 如果出现异常，需要给出错误提示
-            result.setStatus("failure");
-            result.setMessage(e.getMessage());
-        }
-        return result;
-    }
+	/**
+	 * 车流量数据上传
+	 */
+	@Override
+	public WSResult uploadLaneOut(Insertliterary literaries) {
+		WSResult result = new WSResult();// 默认为success状态
+		try {// 执行获得的SQL语句
+			laneoutDao.insertLaneoutRecords(literaries);
+		} catch (SQLException e) {// 如果出现异常，需要给出错误提示
+			result.setStatus("failure");
+			result.setMessage(e.getMessage());
+		}
+		return result;
+	}
 
-    /**
-     * 上报交接班信息
-     */
-    @Override
-    public WSResult uploadOTimeNew(Insertliterary literaries) {
-        WSResult result = new WSResult();// 默认为success状态
-        try {// 执行获得的SQL语句
-            otimeDao.insertOTimeRecords(literaries);
-        } catch (SQLException e) {// 如果出现异常，需要给出错误提示
-            result.setStatus("failure");
-            result.setMessage(e.getMessage());
-        }
-        return result;
-    }
+	/**
+	 * 上报交接班信息
+	 */
+	@Override
+	public WSResult uploadOTimeNew(Insertliterary literaries) {
+		WSResult result = new WSResult();// 默认为success状态
+		try {// 执行获得的SQL语句
+			otimeDao.insertOTimeRecords(literaries);
+		} catch (SQLException e) {// 如果出现异常，需要给出错误提示
+			result.setStatus("failure");
+			result.setMessage(e.getMessage());
+		}
+		return result;
+	}
 }

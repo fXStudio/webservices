@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.jws.WebService;
 
-import org.apache.cxf.annotations.EndpointProperties;
-import org.apache.cxf.annotations.EndpointProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,17 +22,12 @@ import com.freeway.bill.webservices.services.IDataExportService;
  */
 @Component("DataExportService")
 @WebService(
-        endpointInterface = "com.freeway.bill.webservices.services.IDataExportService",
-        targetNamespace = "http://webservices.bill.freeway.com/",
-        serviceName = "DataExportService",
-        name = "DataExportService",
-        portName = "DataExportServicePort",
-        wsdlLocation = "wsdl/DataExportService.wsdl")
-@EndpointProperties({
-    @EndpointProperty(key = "action", value="UsernameToken"),
-    @EndpointProperty(key = "passwordType", value="PasswordText"),
-    @EndpointProperty(key = "ws-security.callback-handler", value="ValidateCallBack"),
-})
+		endpointInterface = "com.freeway.bill.webservices.services.IDataExportService",
+		targetNamespace = "http://webservices.bill.freeway.com/",
+		serviceName = "DataExportService",
+		name = "DataExportService",
+		portName = "DataExportServicePort",
+		wsdlLocation = "wsdl/DataExportService.wsdl")
 final class DataExportService implements IDataExportService {
 	/** 费率查询服务 */
 	private @Autowired PayrateMapper payrateMapper;

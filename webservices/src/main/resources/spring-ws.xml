@@ -21,28 +21,31 @@
 		</cxf:outInterceptors>
 	</cxf:bus>
 
+	<!-- Web Service Access Control -->
+	<bean
+		class="com.freeway.bill.webservices.interceptor.AuthAuthorizationInterceptor"
+		id="authAuthorizationInterceptor">
+		<constructor-arg name="security_key">
+			<value>secretkey</value>
+		</constructor-arg>
+		<constructor-arg name="security_value">
+			<value>5E2FC9F56A57753AC9B9A7C94083EA86</value>
+		</constructor-arg>
+	</bean>
+
 	<!-- Data Exporter Service -->
 	<jaxws:endpoint id="dataExportService" implementor="#DataExportService"
 		address="/data_export">
-		<jaxws:properties>
-			<entry key="ws-security.callback-handler" value-ref="validateCallBack" />
-		</jaxws:properties>
-		<!--Added interceptor below -->
 		<jaxws:inInterceptors>
-			<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
-				<constructor-arg>
-					<map>
-						<entry key="action" value="UsernameToken" />
-						<entry key="passwordType" value="PasswordText" />
-						<entry key="passwordCallbackRef">
-							<ref bean="validateCallBack" />
-						</entry>
-					</map>
-				</constructor-arg>
-			</bean>
+			<ref bean="authAuthorizationInterceptor" />
 		</jaxws:inInterceptors>
 	</jaxws:endpoint>
+
 	<!-- Data Upload Service -->
 	<jaxws:endpoint id="dataUploadService" implementor="#DataUploadService"
-		address="/data_upload" />
+		address="/data_upload">
+		<jaxws:inInterceptors>
+			<ref bean="authAuthorizationInterceptor" />
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
 </beans>
