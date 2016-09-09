@@ -4,7 +4,6 @@ com\freeway\bill\webservices\models\Person.class
 com\freeway\bill\webservices\services\IDataUploadService.class
 com\freeway\bill\webservices\mappers\DeptMapper.class
 com\freeway\bill\webservices\dao\ILaneoutDao.class
-com\freeway\bill\webservices\exceptions\ServiceException.class
 com\freeway\bill\webservices\mappers\PayrateMapper.class
 com\freeway\bill\webservices\services\impl\DataExportService.class
 com\freeway\bill\webservices\models\Payrate.class
